@@ -1,0 +1,22 @@
+{
+    "project_name": "llm-personal-studies-01",
+    "llm": {
+      "model": "gemini-2.0-flash-lite-001",
+      "temperature": 0,
+      "max_tokens": 1000
+    },
+    "api_keys": {
+      "langsmith": "${LANGSMITH_API_KEY}",
+      "tavily": "${TAVILY_WEB_API_KEY}"
+    },
+    "graphs": {
+    "chatbot_graph": "main:graph"
+    },
+    "dependencies": [
+      "google.generativeai",
+      "langsmith",
+      "langchain_google_genai",
+      "langgraph",
+      "ipython"
+    ]
+}
