@@ -1,11 +1,15 @@
+import os
 import json
+from dotenv import load_dotenv
+load_dotenv()
 
 from langchain_core.messages import ToolMessage
-from chatbot_graph import graph_builder
 from langchain_tavily import TavilySearch
+from human_in_the_loop import human_assistance
 
-tool = TavilySearch(max_results=2)
-tools = [tool]
+tool = TavilySearch(max_results=2, tavily_api_key=os.getenv("TAVILY_WEB_API_KEY"))
+tools = [tool, human_assistance]
+
 
 class BasicToolNode:
     """A node that runs the tools requested in the last AIMessage."""
@@ -32,7 +36,5 @@ class BasicToolNode:
                 )
             )
         return {"messages": outputs}
-
-
+    
 tool_node = BasicToolNode(tools=[tool])
-graph_builder.add_node("tools", tool_node)
