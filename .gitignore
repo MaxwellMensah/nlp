@@ -1,6 +1,5 @@
 .env
 transformer_models.py
-diff.py
 __pycache__/
 *.pyc
 gen-lang-client-0809186401-c44564cab387.json
@@ -10,3 +9,4 @@ gen-lang-client-0809186401-c44564cab387.json
 *.whl
 .pckl
 .tmp
+.langgraph_api
